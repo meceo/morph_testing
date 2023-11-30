@@ -1,0 +1,25 @@
+<%= form_with model: @list,
+  data: {
+    controller: "nested-form",
+    nested_form_wrapper_selector_value: '.nested-form-wrapper',
+  } do |f| %>
+
+  <template data-nested-form-target="template">
+    <div class="nested-form-wrapper">
+      <span><%= @random_value_from_server %></span>
+    </div>
+  </template>
+
+  <!-- Inserted elements will be injected before that target. -->
+  <div data-nested-form-target="target"></div>
+
+  <div>
+    <button type="button" data-action="nested-form#add">
+      Add
+    </button>
+  </div>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
