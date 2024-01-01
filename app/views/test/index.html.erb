@@ -1,0 +1,8 @@
+<p>Selected Option: <%= @test %></p>
+
+<%= form_tag test_path do %>
+  <%= select_tag :test,
+        options_for_select(@available_options, @test),
+        onchange: "this.form.requestSubmit()"
+  %>
+<% end %>
